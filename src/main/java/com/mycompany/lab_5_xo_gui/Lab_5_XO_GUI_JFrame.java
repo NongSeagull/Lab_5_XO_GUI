@@ -4,6 +4,8 @@
  */
 package com.mycompany.lab_5_xo_gui;
 
+import java.util.Set;
+
 /**
  *
  * @author 65160230 Piyapong
@@ -22,10 +24,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         //config player to variable
         O = new XOPlayer('O');
         X = new XOPlayer('X');
-        board = new XOBoard(X, O);
-        showTable();
-        showTrun();
         load();
+
     }
 
     public void showTable() {
@@ -43,7 +43,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
 
     public void showTrun() {
         XOPlayer currentPlayer = board.getCurrentPlayer();
-        lblStatus.setText("Turn : " + currentPlayer.getSymbol());
+        lblStatus.setText("  Turn : " + currentPlayer.getSymbol());
     }
 
     /**
@@ -110,6 +110,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer3.setText("-");
         btnPlayer3.setOpaque(false);
         btnPlayer3.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer3ActionPerformed(evt);
+            }
+        });
 
         btnPlayer4.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer4.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -117,6 +122,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer4.setText("-");
         btnPlayer4.setOpaque(false);
         btnPlayer4.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer4ActionPerformed(evt);
+            }
+        });
 
         btnPlayer5.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer5.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -124,6 +134,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer5.setText("-");
         btnPlayer5.setOpaque(false);
         btnPlayer5.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer5ActionPerformed(evt);
+            }
+        });
 
         btnPlayer6.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer6.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -131,6 +146,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer6.setText("-");
         btnPlayer6.setOpaque(false);
         btnPlayer6.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer6ActionPerformed(evt);
+            }
+        });
 
         btnPlayer7.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer7.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -138,6 +158,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer7.setText("-");
         btnPlayer7.setOpaque(false);
         btnPlayer7.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer7ActionPerformed(evt);
+            }
+        });
 
         btnPlayer8.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer8.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -145,6 +170,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer8.setText("-");
         btnPlayer8.setOpaque(false);
         btnPlayer8.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer8ActionPerformed(evt);
+            }
+        });
 
         btnPlayer9.setBackground(new java.awt.Color(201, 218, 191));
         btnPlayer9.setFont(new java.awt.Font("Sarabun", 1, 36)); // NOI18N
@@ -152,6 +182,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer9.setText("-");
         btnPlayer9.setOpaque(false);
         btnPlayer9.setPreferredSize(new java.awt.Dimension(105, 105));
+        btnPlayer9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayer9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelOfButtonLayout = new javax.swing.GroupLayout(jPanelOfButton);
         jPanelOfButton.setLayout(jPanelOfButtonLayout);
@@ -213,7 +248,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         );
         lblPlayerXLayout.setVerticalGroup(
             lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         lblPlayerO.setBackground(new java.awt.Color(254, 250, 224));
@@ -244,8 +279,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             jPanelOfTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelOfTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPlayerX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPlayerX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPlayerO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -326,12 +361,49 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer1ActionPerformed
-        // TODO add your handling code here:
+        board.setRowCol(0, 0);
+        showTable();
     }//GEN-LAST:event_btnPlayer1ActionPerformed
 
     private void btnPlayer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer2ActionPerformed
-        // TODO add your handling code here:
+        board.setRowCol(0, 1);
+        showTable();
     }//GEN-LAST:event_btnPlayer2ActionPerformed
+
+    private void btnPlayer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer3ActionPerformed
+        board.setRowCol(0, 2);
+        showTable();
+    }//GEN-LAST:event_btnPlayer3ActionPerformed
+
+    private void btnPlayer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer4ActionPerformed
+        board.setRowCol(1, 0);
+        showTable();
+    }//GEN-LAST:event_btnPlayer4ActionPerformed
+
+    private void btnPlayer5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer5ActionPerformed
+        board.setRowCol(1, 1);
+        showTable();
+    }//GEN-LAST:event_btnPlayer5ActionPerformed
+
+    private void btnPlayer6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer6ActionPerformed
+        board.setRowCol(1, 2);
+        showTable();
+    }//GEN-LAST:event_btnPlayer6ActionPerformed
+
+    private void btnPlayer7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer7ActionPerformed
+        board.setRowCol(2, 0);
+        showTable();
+    }//GEN-LAST:event_btnPlayer7ActionPerformed
+
+    private void btnPlayer8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer8ActionPerformed
+        board.setRowCol(2, 1);
+        showTable();
+    }//GEN-LAST:event_btnPlayer8ActionPerformed
+
+    private void btnPlayer9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer9ActionPerformed
+        board.setRowCol(2, 2);
+        showTable();
+    }//GEN-LAST:event_btnPlayer9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,6 +462,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void load() {
-
+        board = new XOBoard(X, O);
+        showTable();
+        showTrun();
     }
 }
