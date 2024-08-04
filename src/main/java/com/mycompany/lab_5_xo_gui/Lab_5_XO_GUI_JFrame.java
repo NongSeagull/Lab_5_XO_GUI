@@ -362,65 +362,90 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActionProcess() {
+    private void gameProcess() {
         board.setRowCol(row, col);
         showTable();
+        if (board.isFinish()) {
+            doFinish();
+            return;
+        }
         board.switchTurn();
         showTurn();
+    }
+
+    private void doFinish() {
+        if (board.checkDraw()) {
+            lblStatus.setText("  It's a Draw.");
+        } else {
+            lblStatus.setText("  Congratulations, " + board.getCurrentPlayer().getSymbol() + " is winner.");
+        }
+        setEnableBoard(false);
+    }
+
+    private void setEnableBoard(boolean isEnable) {
+        btnPlayer1.setEnabled(isEnable);
+        btnPlayer2.setEnabled(isEnable);
+        btnPlayer3.setEnabled(isEnable);
+        btnPlayer4.setEnabled(isEnable);
+        btnPlayer5.setEnabled(isEnable);
+        btnPlayer6.setEnabled(isEnable);
+        btnPlayer7.setEnabled(isEnable);
+        btnPlayer8.setEnabled(isEnable);
+        btnPlayer9.setEnabled(isEnable);
     }
 
     private void btnPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer1ActionPerformed
         row = 0;
         col = 0;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer1ActionPerformed
 
     private void btnPlayer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer2ActionPerformed
         row = 0;
         col = 1;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer2ActionPerformed
 
     private void btnPlayer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer3ActionPerformed
         row = 0;
         col = 2;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer3ActionPerformed
 
     private void btnPlayer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer4ActionPerformed
         row = 1;
         col = 0;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer4ActionPerformed
 
     private void btnPlayer5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer5ActionPerformed
         row = 1;
         col = 1;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer5ActionPerformed
 
     private void btnPlayer6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer6ActionPerformed
         row = 1;
         col = 2;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer6ActionPerformed
 
     private void btnPlayer7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer7ActionPerformed
         row = 2;
         col = 0;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer7ActionPerformed
 
     private void btnPlayer8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer8ActionPerformed
         row = 2;
         col = 1;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer8ActionPerformed
 
     private void btnPlayer9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer9ActionPerformed
         row = 2;
         col = 2;
-        btnActionProcess();
+        gameProcess();
     }//GEN-LAST:event_btnPlayer9ActionPerformed
 
     /**
