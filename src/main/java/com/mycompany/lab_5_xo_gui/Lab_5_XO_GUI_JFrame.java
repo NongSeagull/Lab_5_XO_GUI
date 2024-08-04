@@ -84,6 +84,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("XO Game");
         setBackground(new java.awt.Color(105, 79, 142));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -276,7 +277,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         lblPlayerX.setLayout(lblPlayerXLayout);
         lblPlayerXLayout.setHorizontalGroup(
             lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblXPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+            .addComponent(lblXPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
             .addComponent(lblXWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblXLose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblXDraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -325,7 +326,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             .addGroup(lblPlayerOLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblOPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                    .addComponent(lblOPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                     .addComponent(lblOWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblOLose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblODraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -352,8 +353,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             .addGroup(jPanelOfTextLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelOfTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPlayerX, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                    .addComponent(lblPlayerO, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                    .addComponent(lblPlayerX, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                    .addComponent(lblPlayerO, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelOfTextLayout.setVerticalGroup(
@@ -433,7 +434,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanelOfButton, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelOfText, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)))
+                        .addComponent(jPanelOfText, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -449,6 +450,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void gameProcess() {
@@ -463,14 +465,14 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     }
 
     private void doFinish() {
-        board.updateStats();
-        showPlayerInfo();
         if (board.checkDraw()) {
             lblStatus.setText("  It's a Draw.");
         } else if (board.checkWin()) {
             lblStatus.setText("  Congratulations, " + board.getCurrentPlayer().getSymbol() + " is winner.");
         }
         setEnableBoard(false);
+        board.updateStats();
+        showPlayerInfo();
         btnNewGame.setEnabled(true);
     }
 
