@@ -24,6 +24,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         X = new XOPlayer('X');
         board = new XOBoard(X, O);
         showTable();
+        showTrun();
         load();
     }
 
@@ -38,7 +39,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer7.setText(String.valueOf(table[2][0]));
         btnPlayer8.setText(String.valueOf(table[2][1]));
         btnPlayer9.setText(String.valueOf(table[2][2]));
+    }
 
+    public void showTrun() {
+        XOPlayer currentPlayer = board.getCurrentPlayer();
+        lblStatus.setText("Turn : " + currentPlayer.getSymbol());
     }
 
     /**
