@@ -6,7 +6,7 @@ package com.mycompany.lab_5_xo_gui;
 
 /**
  *
- * @author tsuna
+ * @author 65160230 Piyapong
  */
 public class Lab_5_XO_GUI {
 
