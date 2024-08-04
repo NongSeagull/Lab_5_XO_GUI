@@ -11,9 +11,15 @@ package com.mycompany.lab_5_xo_gui;
 public class XOPlayer {
 
     private char player;
+    private int winTimes;
+    private int loseTimes;
+    private int drawTimes;
 
     public XOPlayer() {
         this.player = ' ';
+        this.winTimes = 0;
+        this.loseTimes = 0;
+        this.drawTimes = 0;
     }
 
     public XOPlayer(char symbol) {
@@ -24,8 +30,32 @@ public class XOPlayer {
         return player;
     }
 
+    public int getWinTimes() {
+        return winTimes;
+    }
+
+    public int getLoseTimes() {
+        return loseTimes;
+    }
+
+    public int getDrawTimes() {
+        return drawTimes;
+    }
+
+    public void countWinTimes() {
+        this.winTimes += 1;
+    }
+
+    public void countLoseTimes() {
+        this.loseTimes += 1;
+    }
+
+    public void countDrawTimes() {
+        this.drawTimes += 1;
+    }
+
     @Override
     public String toString() {
-        return "Player is : " + player;
+        return "Player " + player + " - Wins: " + winTimes + ", Losses: " + loseTimes + ", Draws: " + drawTimes;
     }
 }

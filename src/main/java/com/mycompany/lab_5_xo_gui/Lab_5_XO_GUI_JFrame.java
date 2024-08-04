@@ -71,12 +71,12 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         lblPlayerX = new javax.swing.JPanel();
         lblXPlayer = new javax.swing.JLabel();
         lblXWin = new javax.swing.JLabel();
-        lblXLost = new javax.swing.JLabel();
+        lblXLose = new javax.swing.JLabel();
         lblXDraw = new javax.swing.JLabel();
         lblPlayerO = new javax.swing.JPanel();
         lblOPlayer = new javax.swing.JLabel();
         lblOWin = new javax.swing.JLabel();
-        lblOLost = new javax.swing.JLabel();
+        lblOLose = new javax.swing.JLabel();
         lblODraw = new javax.swing.JLabel();
         jPanelOfGame = new javax.swing.JPanel();
         lblStatus = new javax.swing.JLabel();
@@ -258,9 +258,9 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         lblXWin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblXWin.setText("Win : 0");
 
-        lblXLost.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
-        lblXLost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblXLost.setText("Lost : 0");
+        lblXLose.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblXLose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblXLose.setText("Lose : 0");
 
         lblXDraw.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
         lblXDraw.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -272,7 +272,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblXPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblXWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblXLost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblXLose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblXDraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         lblPlayerXLayout.setVerticalGroup(
@@ -282,7 +282,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblXWin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblXLost)
+                .addComponent(lblXLose)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblXDraw)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -298,9 +298,9 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         lblOWin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblOWin.setText("Win : 0");
 
-        lblOLost.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
-        lblOLost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOLost.setText("Lost : 0");
+        lblOLose.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblOLose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblOLose.setText("Lose : 0");
 
         lblODraw.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
         lblODraw.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -315,7 +315,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                 .addGroup(lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblOPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblOWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblOLost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblOLose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblODraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -326,7 +326,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblOWin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblOLost)
+                .addComponent(lblOLose)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblODraw)
                 .addGap(0, 30, Short.MAX_VALUE))
@@ -450,6 +450,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     }
 
     private void doFinish() {
+        board.updateStats();
+        showPlayerInfo();
         if (board.checkDraw()) {
             lblStatus.setText("  It's a Draw.");
         } else if (board.checkWin()) {
@@ -574,7 +576,18 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         board = new XOBoard(X, O);
         btnNewGame.setEnabled(false);
         showTable();
+        showPlayerInfo();
         showTurn();
+    }
+
+    private void showPlayerInfo() {
+        lblXWin.setText("Win : " + X.getWinTimes());
+        lblXLose.setText("Lose : " + X.getLoseTimes());
+        lblXDraw.setText("Draw : " + X.getDrawTimes());
+        lblOWin.setText("Win : " + O.getWinTimes());
+        lblOLose.setText("Lose : " + O.getLoseTimes());
+        lblODraw.setText("Draw : " + O.getDrawTimes());
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -593,14 +606,14 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelOfGame;
     private javax.swing.JPanel jPanelOfText;
     private javax.swing.JLabel lblODraw;
-    private javax.swing.JLabel lblOLost;
+    private javax.swing.JLabel lblOLose;
     private javax.swing.JLabel lblOPlayer;
     private javax.swing.JLabel lblOWin;
     private javax.swing.JPanel lblPlayerO;
     private javax.swing.JPanel lblPlayerX;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblXDraw;
-    private javax.swing.JLabel lblXLost;
+    private javax.swing.JLabel lblXLose;
     private javax.swing.JLabel lblXPlayer;
     private javax.swing.JLabel lblXWin;
     // End of variables declaration//GEN-END:variables

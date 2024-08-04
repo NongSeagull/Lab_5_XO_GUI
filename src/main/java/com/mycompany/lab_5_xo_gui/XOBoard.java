@@ -80,6 +80,8 @@ public class XOBoard {
             return true;
         }
         if (checkDraw()) {
+            p1.countDrawTimes();
+            p2.countDrawTimes();
             return true;
         }
         return false;
@@ -137,10 +139,22 @@ public class XOBoard {
     }
 
     public boolean checkDiagonalPattern2Win() {
-        if (table[2][2] == currentPlayer.getSymbol() && table[1][1] == currentPlayer.getSymbol() && table[0][0] == currentPlayer.getSymbol()) {
+        if (table[0][2] == currentPlayer.getSymbol() && table[1][1] == currentPlayer.getSymbol() && table[2][0] == currentPlayer.getSymbol()) {
             return true;
         }
         return false;
+    }
+
+    public void updateStats() {
+        if (checkWin()) {
+            if (currentPlayer == p1) {
+                p1.countWinTimes();
+                p2.countLoseTimes();
+            } else {
+                p2.countWinTimes();
+                p1.countLoseTimes();
+            }
+        }
     }
 
     public XOPlayer getCurrentPlayer() {
