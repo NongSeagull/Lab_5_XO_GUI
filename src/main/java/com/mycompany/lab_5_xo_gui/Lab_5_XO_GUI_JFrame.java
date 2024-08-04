@@ -6,15 +6,39 @@ package com.mycompany.lab_5_xo_gui;
 
 /**
  *
- * @author tsuna
+ * @author 65160230 Piyapong
  */
 public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
+
+    private XOPlayer O;
+    private XOPlayer X;
+    private XOBoard board;
 
     /**
      * Creates new form Lab_5_XO_GUI_JFrame
      */
     public Lab_5_XO_GUI_JFrame() {
         initComponents();
+        //config player to variable
+        O = new XOPlayer('O');
+        X = new XOPlayer('X');
+        board = new XOBoard(X, O);
+        showTable();
+        load();
+    }
+
+    public void showTable() {
+        char[][] table = board.getTable();
+        btnPlayer1.setText(String.valueOf(table[0][0]));
+        btnPlayer2.setText(String.valueOf(table[0][1]));
+        btnPlayer3.setText(String.valueOf(table[0][2]));
+        btnPlayer4.setText(String.valueOf(table[1][0]));
+        btnPlayer5.setText(String.valueOf(table[1][1]));
+        btnPlayer6.setText(String.valueOf(table[1][2]));
+        btnPlayer7.setText(String.valueOf(table[2][0]));
+        btnPlayer8.setText(String.valueOf(table[2][1]));
+        btnPlayer9.setText(String.valueOf(table[2][2]));
+
     }
 
     /**
@@ -37,9 +61,9 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer8 = new javax.swing.JButton();
         btnPlayer9 = new javax.swing.JButton();
         jPanelOfText = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        lblPlayerX = new javax.swing.JPanel();
+        lblPlayerO = new javax.swing.JPanel();
+        jPanelOfGame = new javax.swing.JPanel();
         lblStatus = new javax.swing.JLabel();
         btnNewGame = new javax.swing.JButton();
         btnClose = new javax.swing.JButton();
@@ -174,29 +198,29 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
 
         jPanelOfText.setBackground(new java.awt.Color(98, 114, 84));
 
-        jPanel2.setBackground(new java.awt.Color(254, 250, 224));
+        lblPlayerX.setBackground(new java.awt.Color(254, 250, 224));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout lblPlayerXLayout = new javax.swing.GroupLayout(lblPlayerX);
+        lblPlayerX.setLayout(lblPlayerXLayout);
+        lblPlayerXLayout.setHorizontalGroup(
+            lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lblPlayerXLayout.setVerticalGroup(
+            lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 170, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(254, 250, 224));
+        lblPlayerO.setBackground(new java.awt.Color(254, 250, 224));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout lblPlayerOLayout = new javax.swing.GroupLayout(lblPlayerO);
+        lblPlayerO.setLayout(lblPlayerOLayout);
+        lblPlayerOLayout.setHorizontalGroup(
+            lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 333, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lblPlayerOLayout.setVerticalGroup(
+            lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 170, Short.MAX_VALUE)
         );
 
@@ -207,21 +231,21 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOfTextLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelOfTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblPlayerO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPlayerX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelOfTextLayout.setVerticalGroup(
             jPanelOfTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelOfTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPlayerX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPlayerO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(98, 114, 84));
+        jPanelOfGame.setBackground(new java.awt.Color(98, 114, 84));
 
         lblStatus.setBackground(new java.awt.Color(254, 250, 224));
         lblStatus.setFont(new java.awt.Font("Sarabun", 1, 24)); // NOI18N
@@ -243,11 +267,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnClose.setText("Close");
         btnClose.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelOfGameLayout = new javax.swing.GroupLayout(jPanelOfGame);
+        jPanelOfGame.setLayout(jPanelOfGameLayout);
+        jPanelOfGameLayout.setHorizontalGroup(
+            jPanelOfGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelOfGameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -256,11 +280,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanelOfGameLayout.setVerticalGroup(
+            jPanelOfGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelOfGameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelOfGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -274,7 +298,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelOfGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanelOfButton, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,7 +313,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                     .addComponent(jPanelOfButton, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                     .addComponent(jPanelOfText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelOfGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -339,6 +363,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
     private javax.swing.JButton btnNewGame;
@@ -351,11 +376,15 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnPlayer7;
     private javax.swing.JButton btnPlayer8;
     private javax.swing.JButton btnPlayer9;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelOfButton;
+    private javax.swing.JPanel jPanelOfGame;
     private javax.swing.JPanel jPanelOfText;
+    private javax.swing.JPanel lblPlayerO;
+    private javax.swing.JPanel lblPlayerX;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables
+
+    private void load() {
+
+    }
 }
