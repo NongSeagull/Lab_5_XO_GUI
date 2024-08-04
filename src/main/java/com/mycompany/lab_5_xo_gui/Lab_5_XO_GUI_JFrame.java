@@ -69,7 +69,15 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer9 = new javax.swing.JButton();
         jPanelOfText = new javax.swing.JPanel();
         lblPlayerX = new javax.swing.JPanel();
+        lblXPlayer = new javax.swing.JLabel();
+        lblXWin = new javax.swing.JLabel();
+        lblXLost = new javax.swing.JLabel();
+        lblXDraw = new javax.swing.JLabel();
         lblPlayerO = new javax.swing.JPanel();
+        lblOPlayer = new javax.swing.JLabel();
+        lblOWin = new javax.swing.JLabel();
+        lblOLost = new javax.swing.JLabel();
+        lblODraw = new javax.swing.JLabel();
         jPanelOfGame = new javax.swing.JPanel();
         lblStatus = new javax.swing.JLabel();
         btnNewGame = new javax.swing.JButton();
@@ -242,28 +250,86 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
 
         lblPlayerX.setBackground(new java.awt.Color(254, 250, 224));
 
+        lblXPlayer.setFont(new java.awt.Font("Sarabun", 1, 24)); // NOI18N
+        lblXPlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblXPlayer.setText("X Player");
+
+        lblXWin.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblXWin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblXWin.setText("Win : 0");
+
+        lblXLost.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblXLost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblXLost.setText("Lost : 0");
+
+        lblXDraw.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblXDraw.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblXDraw.setText("Draw : 0");
+
         javax.swing.GroupLayout lblPlayerXLayout = new javax.swing.GroupLayout(lblPlayerX);
         lblPlayerX.setLayout(lblPlayerXLayout);
         lblPlayerXLayout.setHorizontalGroup(
             lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(lblXPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblXWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblXLost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblXDraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         lblPlayerXLayout.setVerticalGroup(
             lblPlayerXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(lblPlayerXLayout.createSequentialGroup()
+                .addComponent(lblXPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblXWin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblXLost)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblXDraw)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         lblPlayerO.setBackground(new java.awt.Color(254, 250, 224));
+
+        lblOPlayer.setFont(new java.awt.Font("Sarabun", 1, 24)); // NOI18N
+        lblOPlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblOPlayer.setText("O Player");
+
+        lblOWin.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblOWin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblOWin.setText("Win : 0");
+
+        lblOLost.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblOLost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblOLost.setText("Lost : 0");
+
+        lblODraw.setFont(new java.awt.Font("Sarabun", 0, 18)); // NOI18N
+        lblODraw.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblODraw.setText("Draw : 0");
 
         javax.swing.GroupLayout lblPlayerOLayout = new javax.swing.GroupLayout(lblPlayerO);
         lblPlayerO.setLayout(lblPlayerOLayout);
         lblPlayerOLayout.setHorizontalGroup(
             lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGroup(lblPlayerOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblOWin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblOLost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblODraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         lblPlayerOLayout.setVerticalGroup(
             lblPlayerOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addGroup(lblPlayerOLayout.createSequentialGroup()
+                .addComponent(lblOPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblOWin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblOLost)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblODraw)
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelOfTextLayout = new javax.swing.GroupLayout(jPanelOfText);
@@ -302,12 +368,22 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnNewGame.setForeground(new java.awt.Color(95, 111, 101));
         btnNewGame.setText("New Game");
         btnNewGame.setOpaque(false);
+        btnNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewGameActionPerformed(evt);
+            }
+        });
 
         btnClose.setBackground(new java.awt.Color(254, 250, 224));
         btnClose.setFont(new java.awt.Font("Sarabun", 1, 18)); // NOI18N
         btnClose.setForeground(new java.awt.Color(95, 111, 101));
         btnClose.setText("Close");
         btnClose.setOpaque(false);
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelOfGameLayout = new javax.swing.GroupLayout(jPanelOfGame);
         jPanelOfGame.setLayout(jPanelOfGameLayout);
@@ -320,7 +396,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
                 .addComponent(btnNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanelOfGameLayout.setVerticalGroup(
             jPanelOfGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,10 +452,11 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private void doFinish() {
         if (board.checkDraw()) {
             lblStatus.setText("  It's a Draw.");
-        } else {
+        } else if (board.checkWin()) {
             lblStatus.setText("  Congratulations, " + board.getCurrentPlayer().getSymbol() + " is winner.");
         }
         setEnableBoard(false);
+        btnNewGame.setEnabled(true);
     }
 
     private void setEnableBoard(boolean isEnable) {
@@ -448,6 +525,16 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         gameProcess();
     }//GEN-LAST:event_btnPlayer9ActionPerformed
 
+    private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        setEnableBoard(true);
+        btnNewGame.setEnabled(false);
+        load();
+    }//GEN-LAST:event_btnNewGameActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCloseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -483,6 +570,12 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         });
     }
 
+    private void load() {
+        board = new XOBoard(X, O);
+        btnNewGame.setEnabled(false);
+        showTable();
+        showTurn();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
@@ -499,14 +592,17 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelOfButton;
     private javax.swing.JPanel jPanelOfGame;
     private javax.swing.JPanel jPanelOfText;
+    private javax.swing.JLabel lblODraw;
+    private javax.swing.JLabel lblOLost;
+    private javax.swing.JLabel lblOPlayer;
+    private javax.swing.JLabel lblOWin;
     private javax.swing.JPanel lblPlayerO;
     private javax.swing.JPanel lblPlayerX;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblXDraw;
+    private javax.swing.JLabel lblXLost;
+    private javax.swing.JLabel lblXPlayer;
+    private javax.swing.JLabel lblXWin;
     // End of variables declaration//GEN-END:variables
 
-    private void load() {
-        board = new XOBoard(X, O);
-        showTable();
-        showTurn();
-    }
 }
