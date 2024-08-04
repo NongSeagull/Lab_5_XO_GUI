@@ -15,6 +15,8 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private XOPlayer O;
     private XOPlayer X;
     private XOBoard board;
+    private int row;
+    private int col;
 
     /**
      * Creates new form Lab_5_XO_GUI_JFrame
@@ -41,7 +43,7 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         btnPlayer9.setText(String.valueOf(table[2][2]));
     }
 
-    public void showTrun() {
+    public void showTurn() {
         XOPlayer currentPlayer = board.getCurrentPlayer();
         lblStatus.setText("  Turn : " + currentPlayer.getSymbol());
     }
@@ -360,49 +362,65 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer1ActionPerformed
-        board.setRowCol(0, 0);
+    private void btnActionProcess() {
+        board.setRowCol(row, col);
         showTable();
+        board.switchTurn();
+        showTurn();
+    }
+
+    private void btnPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer1ActionPerformed
+        row = 0;
+        col = 0;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer1ActionPerformed
 
     private void btnPlayer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer2ActionPerformed
-        board.setRowCol(0, 1);
-        showTable();
+        row = 0;
+        col = 1;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer2ActionPerformed
 
     private void btnPlayer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer3ActionPerformed
-        board.setRowCol(0, 2);
-        showTable();
+        row = 0;
+        col = 2;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer3ActionPerformed
 
     private void btnPlayer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer4ActionPerformed
-        board.setRowCol(1, 0);
-        showTable();
+        row = 1;
+        col = 0;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer4ActionPerformed
 
     private void btnPlayer5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer5ActionPerformed
-        board.setRowCol(1, 1);
-        showTable();
+        row = 1;
+        col = 1;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer5ActionPerformed
 
     private void btnPlayer6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer6ActionPerformed
-        board.setRowCol(1, 2);
-        showTable();
+        row = 1;
+        col = 2;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer6ActionPerformed
 
     private void btnPlayer7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer7ActionPerformed
-        board.setRowCol(2, 0);
-        showTable();
+        row = 2;
+        col = 0;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer7ActionPerformed
 
     private void btnPlayer8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer8ActionPerformed
-        board.setRowCol(2, 1);
-        showTable();
+        row = 2;
+        col = 1;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer8ActionPerformed
 
     private void btnPlayer9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayer9ActionPerformed
-        board.setRowCol(2, 2);
-        showTable();
+        row = 2;
+        col = 2;
+        btnActionProcess();
     }//GEN-LAST:event_btnPlayer9ActionPerformed
 
     /**
@@ -464,6 +482,6 @@ public class Lab_5_XO_GUI_JFrame extends javax.swing.JFrame {
     private void load() {
         board = new XOBoard(X, O);
         showTable();
-        showTrun();
+        showTurn();
     }
 }
